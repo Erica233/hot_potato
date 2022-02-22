@@ -12,7 +12,7 @@
 #include <arpa/inet.h>
 
 #include "potato.h"
-#include "tcp.h"
+#include "socket.h"
 
 #define MAX_NUM_HOPS 512
 
