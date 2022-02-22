@@ -1,6 +1,18 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
+#include <vector>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <unistd.h>
+
+#include "socket.h"
+#include "potato.h"
+#include "player.h"
+
 class Player {
 private:
     char * master_host;

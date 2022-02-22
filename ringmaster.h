@@ -10,6 +10,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <arpa/inet.h>
+#include <vector>
 
 #include "potato.h"
 #include "socket.h"
