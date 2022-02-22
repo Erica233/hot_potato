@@ -33,9 +33,9 @@ public:
     std::vector<int> fds;
 
 public:
-    Player(char * host, char * port): {
-        master_host = argv[1];
-        master_port = argv[2];
+    Player(char * host, char * port) {
+        master_host = host;
+        master_port = port;
     }
 };
 
