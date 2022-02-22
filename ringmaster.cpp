@@ -6,10 +6,9 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
     Ringmaster master(argv[1], argv[2], argv[3]);
-
-    std::cout << "Players = " << master.num_players << std::endl;
-    std::cout << "Hops = " << master.num_hops << std::endl;
-    std::cout << "port = " << master.port << std::endl;
+    std::cout << "master.num_players: " << master.num_players << std::endl;
+    std::cout << "master.num_hops: " << master.num_hops << std::endl;
+    std::cout << "master.port: " << master.port << std::endl;
     return EXIT_SUCCESS;
 }
 

@@ -43,7 +43,6 @@ public:
         std::cout << "Potato Ringmaster\n";
         std::cout << "Players = " << num_players << std::endl;
         std::cout << "Hops = " << num_hops << std::endl;
-        std::cout << "port = " << port << std::endl;
     }
 };
 
