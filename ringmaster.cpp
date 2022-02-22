@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
     return EXIT_SUCCESS;
 }
 
+/*
 int main(int argc, char **argv) {
     //parse command line argument
     if (argc != 4) {
@@ -117,3 +118,4 @@ int main(int argc, char **argv) {
     close(socket_fd);
     return EXIT_SUCCESS;
 }
+*/
