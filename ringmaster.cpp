@@ -1,13 +1,35 @@
 #include "ringmaster.h"
 
 int main(int argc, char **argv) {
-    //parse command line argument
     if (argc != 4) {
         std::cerr << "Usage: program <port_num> <num_players> <num_hops>\n";
         return EXIT_FAILURE;
     }
     Ringmaster master(argv[1], argv[2], argv[3]);
 
+    std::cout << "Players = " << master.num_players << std::endl;
+    std::cout << "Hops = " << master.num_hops << std::endl;
+    std::cout << "port = " << master.port << std::endl;
+    return EXIT_SUCCESS;
+}
+
+int main(int argc, char **argv) {
+    //parse command line argument
+    if (argc != 4) {
+        std::cerr << "Usage: program <port_num> <num_players> <num_hops>\n";
+        return EXIT_FAILURE;
+    }
+    char * port = argv[1];
+    int num_players = atoi(argv[2]);
+    if (num_players <= 1) {
+        std::cerr << "Invalid num_players\n";
+        return EXIT_FAILURE;
+    }
+    int num_hops = atoi(argv[3]);
+    if (num_hops < 0 || num_hops > 512) {
+        std::cerr << "Invalid num_hops\n";
+        return EXIT_FAILURE;
+    }
     std::cout << "Potato Ringmaster\n";
     std::cout << "Players = " << num_players << std::endl;
     std::cout << "Hops = " << num_hops << std::endl;
