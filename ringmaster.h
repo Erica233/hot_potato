@@ -18,7 +18,7 @@
 #define MAX_NUM_HOPS 512
 
 class Ringmaster {
-private:
+public:
     char * port;
     int num_players;
     int num_hops;

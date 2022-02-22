@@ -14,7 +14,7 @@
 #include "player.h"
 
 class Player {
-private:
+public:
     char * master_host;
     char * master_port;
     int socket_fd;  //connect itself with ringmaster
