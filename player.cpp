@@ -125,7 +125,7 @@ int main(int argc, char **argv) {
     std::cout << "left_id = " << player.left_id << std::endl;
     std::cout << "right_id = " << player.right_id << std::endl;
 
-    srand((unsigned int)time(NULL) + id);
+    srand((unsigned int)time(NULL) + player.id);
     player.play_potato();
 
     return EXIT_SUCCESS;
