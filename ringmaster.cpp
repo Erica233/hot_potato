@@ -9,7 +9,7 @@ void Ringmaster::connect_players() {
         int client_connect_fd = accept(socket_fd, (struct sockaddr *)&socket_addr, &socket_addr_len);
         if (client_connect_fd == -1) {
             std::cerr << "Error: accept() failed\n";
-            return EXIT_FAILURE;
+            exit(EXIT_FAILURE);
         }
         fds.push_back(client_connect_fd);
 
@@ -48,11 +48,9 @@ int main(int argc, char **argv) {
     std::cout << "master.num_hops: " << master.num_hops << std::endl;
     std::cout << "master.port: " << master.port << std::endl;
 
-    socket_fd = create_server(master.port);
-
     //connect ringmaster and each player
     master.connect_players();
-    print_vec(num_players, hosts, ports);
+    master.print_vec();
 
     return EXIT_SUCCESS;
 }
