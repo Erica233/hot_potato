@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
 
     master.ring_players();
 
-    srand((unsigned int)time(NULL));
+    srand((unsigned int)time(NULL) + master.get_num_players());
     master.play_potato();
 
     return EXIT_SUCCESS;

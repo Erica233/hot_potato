@@ -44,6 +44,7 @@ public:
         std::cout << "Hops = " << num_hops << std::endl;
     }
     void connect_players();
+    int get_num_players() {return num_players;}
     void ring_players();
     void play_potato();
     void print_vec();
