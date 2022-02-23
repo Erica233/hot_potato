@@ -62,7 +62,7 @@ void Ringmaster::play_potato() {
     //create potato object
     Potato potato(num_hops);
     //start game
-    //srand((unsigned int)time(NULL));
+    srand((unsigned int)time(NULL) + num_players);
     int random = rand() % num_players;
     //std::cout << "random outside of if statement: " << random << std::endl;
     //std::cout << "Ready to start the game, sending potato to player " << random << std::endl;
@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
 
     master.ring_players();
 
-    srand((unsigned int)time(NULL) + master.get_num_players());
+    //srand((unsigned int)time(NULL) + master.get_num_players());
     master.play_potato();
 
     return EXIT_SUCCESS;
