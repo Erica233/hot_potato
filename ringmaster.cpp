@@ -6,7 +6,7 @@ void Ringmaster::connect_players() {
     socket_fd = create_server(port);
 
     for (int i = 0; i < num_players; i++) {
-        std::cout << "i = " << i << std::endl;
+        //std::cout << "i = " << i << std::endl;
         //accept
         struct sockaddr_storage socket_addr;
         socklen_t socket_addr_len = sizeof(socket_addr);
@@ -66,7 +66,7 @@ void Ringmaster::play_potato() {
     //start game
     //srand((unsigned int)time(NULL));
     int random = rand() % num_players;
-    std::cout << "random outside of if statement: " << random << std::endl;
+    //std::cout << "random outside of if statement: " << random << std::endl;
     //std::cout << "Ready to start the game, sending potato to player " << random << std::endl;
     //wait for potato back
     if (num_hops == 0) {
@@ -96,9 +96,9 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
     Ringmaster master(argv[1], argv[2], argv[3]);
-    std::cout << "master.num_players: " << master.num_players << std::endl;
-    std::cout << "master.num_hops: " << master.num_hops << std::endl;
-    std::cout << "master.port: " << master.port << std::endl;
+    //std::cout << "master.num_players: " << master.num_players << std::endl;
+    //std::cout << "master.num_hops: " << master.num_hops << std::endl;
+    //std::cout << "master.port: " << master.port << std::endl;
 
     //connect ringmaster and each player
     master.connect_players();

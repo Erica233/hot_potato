@@ -23,7 +23,7 @@ void Player::setup() {
         std::cerr << "Error: gethostname() failed\n";
         exit(EXIT_FAILURE);
     }
-    std::cout << "host from gethostname(): " << host << std::endl;
+    std::cout << "----my host from gethostname(): " << host << std::endl;
     send(socket_fd, &host, sizeof(host), 0);
 
     //work as a server and get port, and send to ringmaster
@@ -36,7 +36,7 @@ void Player::setup() {
         exit(EXIT_FAILURE);
     }
     uint16_t port_num = ntohs(addr.sin_port);
-    std::cout << "my port_num: " << port_num << std::endl;
+    std::cout << "----my port_num: " << port_num << std::endl;
     send(socket_fd, &port_num, sizeof(port_num), 0);
 
     uint16_t right_port;
@@ -82,7 +82,7 @@ void Player::play_potato() {
         //receive potato from ringmaster or other players
         int n = select_read(fds, potato);
         //potato.print_trace();
-        std::cout << "after select_read()\n";
+        //std::cout << "after select_read()\n";
         std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         //if the ringmaster notify that the game ends, jump out of loop
         if (potato.remain_hops == 0 | n == 0) {
@@ -119,13 +119,13 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
     Player player(argv[1], argv[2]);
-    std::cout << "master_host = " << player.master_host << std::endl;
-    std::cout << "master_port = " << player.master_port << std::endl;
+    //std::cout << "master_host = " << player.master_host << std::endl;
+    //std::cout << "master_port = " << player.master_port << std::endl;
 
     player.setup();
     std::cout << "num_players = " << player.num_players << std::endl;
-    std::cout << "id = " << player.id << std::endl;
     std::cout << "left_id = " << player.left_id << std::endl;
+    std::cout << "id = " << player.id << std::endl;
     std::cout << "right_id = " << player.right_id << std::endl;
 
     srand((unsigned int)time(NULL) + player.id);
