@@ -16,7 +16,7 @@ class Player {
 private:
     void cal_neighbor_id();
     void send_host_port();
-public:
+//public:
     char * master_host;
     char * master_port;
     int socket_fd;  //connect itself with ringmaster
