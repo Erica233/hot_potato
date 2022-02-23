@@ -75,15 +75,14 @@ void Player::setup() {
 
 void Player::play_potato() {
     //play
-    //std::cout << "before potato: \n";
-    srand((unsigned int)time(NULL) + id);
+    std::cout << "=======before potato: \n";
     while (true) {
         //std::cout << "enter while\n";
         //receive potato from ringmaster or other players
         select_read(fds, potato);
-        //std::cout << "after select_read()\n";
-        //std::cout << "tot_hops: " << potato.tot_hops << std::endl;
-        //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
+        std::cout << "after select_read()\n";
+        std::cout << "tot_hops: " << potato.tot_hops << std::endl;
+        std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         //if the ringmaster notify that the game ends, jump out of loop
         if (potato.remain_hops == 0) {
             //std::cout << "game ends\n";
@@ -126,6 +125,7 @@ int main(int argc, char **argv) {
     std::cout << "left_id = " << player.left_id << std::endl;
     std::cout << "right_id = " << player.right_id << std::endl;
 
+    srand((unsigned int)time(NULL) + id);
     player.play_potato();
 
     return EXIT_SUCCESS;
