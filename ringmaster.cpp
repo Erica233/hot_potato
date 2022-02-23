@@ -55,8 +55,8 @@ void Ringmaster::ring_players() {
     }
 }
 
+//send potato
 void Ringmaster::play_potato() {
-    //create potato object
     Potato potato(num_hops);
     //start game
     srand((unsigned int)time(NULL) + num_players);

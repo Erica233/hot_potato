@@ -1,5 +1,6 @@
 #include "player.h"
 
+//calculate its neighbor's id
 void Player::cal_neighbor_id() {
     left_id = id - 1;
     if (left_id < 0) {
@@ -12,6 +13,7 @@ void Player::cal_neighbor_id() {
     ids.insert(ids.end(), {right_id, left_id});
 }
 
+//send its host and port to ringmaster
 void Player::send_host_port() {
     char host[MAX_HOST_LEN];
     memset(host, 0, sizeof(host));
@@ -33,6 +35,7 @@ void Player::send_host_port() {
     send(socket_fd, &port_num, sizeof(port_num), 0);
 }
 
+// connect with ringmaster and neighbor players
 void Player::setup() {
     //connect itself with ringmaster
     socket_fd = create_client(master_port, master_host);
@@ -54,7 +57,6 @@ void Player::setup() {
     char right_port_cstr[10];
     memset(right_port_cstr, 0, sizeof(right_port_cstr));
     sprintf(right_port_cstr, "%u", right_port);
-    //std::cout << "right_port_cstr: " << right_port_cstr << std::endl;
 
     std::cout << "Connected as player " << id << " out of " << num_players << " total players\n";
 
@@ -73,8 +75,8 @@ void Player::setup() {
     fds.insert(fds.end(), {as_client_fd, client_connect_fd, socket_fd});
 }
 
+//receive and send potato
 void Player::play_potato() {
-    //play
     Potato potato;
     srand((unsigned int)time(NULL) + getId());
     while (true) {
