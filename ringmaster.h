@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "potato.h"
-#include "socket.h"
+#include "socket.cpp"
 
 #define MAX_NUM_HOPS 512
 

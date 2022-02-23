@@ -9,7 +9,7 @@
 #include <netdb.h>
 #include <unistd.h>
 
-#include "socket.h"
+#include "socket.cpp"
 #include "potato.h"
 
 class Player {

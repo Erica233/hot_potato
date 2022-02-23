@@ -1,4 +1,19 @@
-#include "socket.h"
+#include <iostream>
+#include <cstring>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <unistd.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <arpa/inet.h>
+#include <vector>
+
+#include "potato.h"
+
+#define BACK_LOG 100
+#define MAX_HOST_LEN 255
+
+//#include "socket.h"
 
 int create_server(const char * port) {
     char * hostname = NULL;

@@ -1,8 +1,8 @@
 #CPPFLAGS=-ggdb3 -Wall -Werror -pedantic -std=gnu++98
 all: ringmaster player
-ringmaster: ringmaster.cpp socket.cpp potato.h
+ringmaster: ringmaster.cpp socket.h potato.h
 	g++ -g -o $@ $<
-player: player.cpp socket.cpp potato.h
+player: player.cpp socket.h potato.h
 	g++ -g -o $@ $<
 
 .PHONY: clean
