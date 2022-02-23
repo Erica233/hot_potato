@@ -21,6 +21,7 @@ public:
                 std::cout << ids[i] << ",";
             }
         }
+        std::cout << std::endl;
     }
 };
 
