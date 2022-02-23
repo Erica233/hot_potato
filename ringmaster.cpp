@@ -2,7 +2,9 @@
 
 //connect ringmaster and each player
 void Ringmaster::connect_players() {
+    std::cout << "enter connect_players()\n";
     for (int i = 0; i < num_players; i++) {
+        std::cout << "i = " << i << std::endl;
         //accept
         struct sockaddr_storage socket_addr;
         socklen_t socket_addr_len = sizeof(socket_addr);
