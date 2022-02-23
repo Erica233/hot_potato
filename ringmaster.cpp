@@ -77,14 +77,7 @@ void Ringmaster::play_potato() {
         //report results
         std::cout << "Trace of potato: \n";
         //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
-        for (int i = 0; i < num_hops; i++) {
-            if (i == num_hops - 1) {
-                std::cout << potato.ids[i] << "\n";
-                break;
-            }//else {
-            std::cout << potato.ids[i] << ",";
-            //}
-        }
+        potato.print_trace();
     }
 }
 

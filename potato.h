@@ -16,10 +16,9 @@ public:
         for (int i = 0; i < 20; i++) {
             if (i == tot_hops - 1) {
                 std::cout << ids[i] << "\n";
-                //break;
-            } else {
-                std::cout << ids[i] << ",";
+                break;
             }
+            std::cout << ids[i] << ",";
         }
         std::cout << std::endl;
     }
