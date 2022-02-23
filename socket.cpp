@@ -120,5 +120,6 @@ int select_read(std::vector<int> & fds, Potato & potato) {
                 return n;
             }
         }
+        return 1;
     }
 }
