@@ -11,7 +11,6 @@
 
 #include "socket.h"
 #include "potato.h"
-#include "player.h"
 
 class Player {
 public:
