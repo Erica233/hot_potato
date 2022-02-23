@@ -82,7 +82,6 @@ void Player::play_potato() {
         //receive potato from ringmaster or other players
         select_read(fds, potato);
         std::cout << "after select_read()\n";
-        std::cout << "tot_hops: " << potato.tot_hops << std::endl;
         std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         //if the ringmaster notify that the game ends, jump out of loop
         if (potato.remain_hops == 0) {
@@ -106,7 +105,6 @@ void Player::play_potato() {
         //send to a random neighbor
         int random_idx = rand() % 2;
         send(fds[random_idx], &potato, sizeof(potato), 0);
-        std::cout << "leftid & rightid: " << ids[1] << " " << ids[0] << "\n";
         std::cout << "Sending potato to " << ids[random_idx] << std::endl;
     }
 }

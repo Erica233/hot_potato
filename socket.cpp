@@ -116,7 +116,6 @@ void select_read(std::vector<int> & fds, Potato & potato) {
             if (FD_ISSET(fds[i], &readfds)) {
                 recv(fds[i], &potato, sizeof(potato), MSG_WAITALL);
                 std::cout << "after recv(): \n";
-                std::cout << "tot_hops: " << potato.tot_hops << std::endl;
                 std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
                 break;
             }
