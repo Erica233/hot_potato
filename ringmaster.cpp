@@ -2,7 +2,7 @@
 
 //connect ringmaster and each player
 void Ringmaster::connect_players() {
-    std::cout << "enter connect_players()\n";
+    //std::cout << "enter connect_players()\n";
     socket_fd = create_server(port);
 
     for (int i = 0; i < num_players; i++) {

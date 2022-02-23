@@ -27,8 +27,8 @@ public:
 
     int as_client_fd;  //as a client, connect with right
 
-    std::vector<int> ids;
-    std::vector<int> fds;
+    std::vector<int> ids;  //{right_id, left_id}
+    std::vector<int> fds;  //{as_client_fd, client_connect_fd, socket_fd})
 
 public:
     Player(char * host, char * port) {

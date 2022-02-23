@@ -81,7 +81,7 @@ void Player::play_potato() {
         std::cout << "------enter while\n";
         //receive potato from ringmaster or other players
         int n = select_read(fds, potato);
-        //potato.print_trace();
+        potato.print_trace();
         //std::cout << "after select_read()\n";
         std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         //if the ringmaster notify that the game ends, jump out of loop
