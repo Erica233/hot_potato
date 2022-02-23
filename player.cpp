@@ -62,7 +62,7 @@ void Player::setup() {
     sprintf(right_port_cstr, "%u", right_port);
     //std::cout << "right_port_cstr: " << right_port_cstr << std::endl;
 
-    //std::cout << "Connected as player " << id << " out of " << num_players << " total players\n";
+    std::cout << "Connected as player " << id << " out of " << num_players << " total players\n";
 
     // as a client, connect with right
     //std::cout << "as a client, connect with right: " << std::endl;
