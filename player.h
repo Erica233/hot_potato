@@ -37,6 +37,13 @@ public:
         master_host = host;
         master_port = port;
     }
+    void setup();
+    ~Player() {
+        close(socket_fd);
+        close(as_server_fd);
+        close(as_client_fd);
+        close(client_connect_fd);
+    }
 };
 
 #endif

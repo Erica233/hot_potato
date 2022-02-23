@@ -44,6 +44,15 @@ public:
         std::cout << "Players = " << num_players << std::endl;
         std::cout << "Hops = " << num_hops << std::endl;
     }
+    void connect_players();
+    void print_vec();
+    ~Ringmaster() {
+        for (int i = 0; i < num_players; i++) {
+            //send(fds[i], &potato, sizeof(potato), 0);
+            close(fds[i]);
+        }
+        close(socket_fd);
+    }
 };
 
 #endif
