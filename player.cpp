@@ -99,6 +99,7 @@ void Player::play_potato() {
         std::cout << "potato.remain_hops: " << potato.remain_hops << std::endl;
         if (potato.remain_hops == 0) {
             std::cout << "I’m it\n";
+            potato.print_trace();
             //send to ringmaster
             send(socket_fd, &potato, sizeof(potato), 0);
             continue;
