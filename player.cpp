@@ -45,31 +45,7 @@ void Player::setup() {
 
     //work as a server and get port, and send to ringmaster
     as_server_fd = create_server("0");
-
     send_host_port();
-    /*
-    char host[MAX_HOST_LEN];
-    memset(host, 0, sizeof(host));
-    if (gethostname(host, sizeof(host)) != 0) {
-        std::cerr << "Error: gethostname() failed\n";
-        exit(EXIT_FAILURE);
-    }
-    std::cout << "----my host from gethostname(): " << host << std::endl;
-    send(socket_fd, &host, sizeof(host), 0);
-
-    //work as a server and get port, and send to ringmaster
-    as_server_fd = create_server("0");
-    struct sockaddr_in addr;
-    memset(&addr, 0, sizeof(addr));
-    socklen_t len = sizeof(addr);
-    if (getsockname(as_server_fd, (struct sockaddr *)&addr, &len) == -1) {
-        std::cerr << "Error: getsockname() failed\n";
-        exit(EXIT_FAILURE);
-    }
-    uint16_t port_num = ntohs(addr.sin_port);
-    std::cout << "----my port_num: " << port_num << std::endl;
-    send(socket_fd, &port_num, sizeof(port_num), 0);
-    */
 
     uint16_t right_port;
     char right_host_cstr[MAX_HOST_LEN];
