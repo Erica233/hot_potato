@@ -85,7 +85,7 @@ void Player::play_potato() {
     //play
     Potato potato;
     //std::cout << "=======before potato: \n";
-    srand((unsigned int)time(NULL) + player.getId());
+    srand((unsigned int)time(NULL) + getId());
     while (true) {
         //std::cout << "------enter while\n";
         //receive potato from ringmaster or other players
