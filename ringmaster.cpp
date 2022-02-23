@@ -42,6 +42,24 @@ void Ringmaster::print_vec() {
     std::cout << std::endl;
 }
 
+//ring together players
+void Ringmaster::ring_players() {
+    for (int i = 0; i < num_players; i++) {
+        int right_id = i + 1;
+        if (right_id == num_players) {
+            right_id = 0;
+        }
+        //std::cout << "right_id: " << right_id << std::endl;
+        //std::cout << "right_port (ports[right_id]): " << ports[right_id] << std::endl;
+        //std::cout << "right_host (hosts[right_id]): " << hosts[right_id] << std::endl;
+        char host_cstr[MAX_HOST_LEN];
+        memset(host_cstr, 0, sizeof(host_cstr));
+        std::strcpy (host_cstr, hosts[right_id].c_str());
+        send(fds[i], host_cstr, sizeof(host_cstr), 0);
+        send(fds[i], &ports[right_id], sizeof(ports[right_id]), 0);
+    }
+}
+
 int main(int argc, char **argv) {
     if (argc != 4) {
         std::cerr << "Usage: program <port_num> <num_players> <num_hops>\n";
@@ -55,6 +73,8 @@ int main(int argc, char **argv) {
     //connect ringmaster and each player
     master.connect_players();
     master.print_vec();
+
+    master.ring_players();
 
     return EXIT_SUCCESS;
 }

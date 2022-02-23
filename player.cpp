@@ -15,6 +15,7 @@ void Player::setup() {
     if (right_id == num_players) {
         right_id = 0;
     }
+    ids.insert(ids.end(), {right_id, left_id});
 
     char host[MAX_HOST_LEN];
     memset(host, 0, sizeof(host));
@@ -22,7 +23,7 @@ void Player::setup() {
         std::cerr << "Error: gethostname() failed\n";
         exit(EXIT_FAILURE);
     }
-    std::cout << "host from gethostname()" << host << std::endl;
+    std::cout << "host from gethostname(): " << host << std::endl;
     send(socket_fd, &host, sizeof(host), 0);
 
     //work as a server and get port, and send to ringmaster
@@ -69,6 +70,7 @@ void Player::setup() {
         std::cerr << "Error: accept() failed\n";
         exit(EXIT_FAILURE);
     }
+    fds.insert(fds.end(), {as_client_fd, client_connect_fd, socket_fd});
 }
 
 int main(int argc, char **argv) {

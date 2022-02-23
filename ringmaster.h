@@ -45,6 +45,7 @@ public:
         std::cout << "Hops = " << num_hops << std::endl;
     }
     void connect_players();
+    void ring_players();
     void print_vec();
     ~Ringmaster() {
         for (int i = 0; i < num_players; i++) {
