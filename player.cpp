@@ -73,6 +73,44 @@ void Player::setup() {
     fds.insert(fds.end(), {as_client_fd, client_connect_fd, socket_fd});
 }
 
+void Player::play_potato() {
+    //play
+    //std::cout << "before potato: \n";
+    srand((unsigned int)time(NULL) + id);
+    while (true) {
+        //std::cout << "enter while\n";
+        //receive potato from ringmaster or other players
+        select_read(fds, potato);
+        //std::cout << "after select_read()\n";
+        //std::cout << "tot_hops: " << potato.tot_hops << std::endl;
+        //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
+        //if the ringmaster notify that the game ends, jump out of loop
+        if (potato.remain_hops == 0) {
+            //std::cout << "game ends\n";
+            break;
+        }
+        //if get potato from other player, edit potato
+        //std::cout << "edit potato: \n";
+        potato.ids[potato.curr_rnd] = id;
+        //std::cout << "ids[potato.curr_rnd] = " << potato.ids[potato.curr_rnd] << std::endl;
+        potato.curr_rnd++;
+        //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
+        potato.remain_hops--;
+        //std::cout << "potato.remain_hops: " << potato.remain_hops << std::endl;
+        if (potato.remain_hops == 0) {
+            std::cout << "I’m it\n";
+            //send to ringmaster
+            send(socket_fd, &potato, sizeof(potato), 0);
+            continue;
+        }
+        //send to a random neighbor
+        int random_idx = rand() % 2;
+        send(fds[random_idx], &potato, sizeof(potato), 0);
+        //std::cout << "leftid & rightid: " << ids[1] << " " << ids[0] << "\n";
+        std::cout << "Sending potato to " << ids[random_idx] << std::endl;
+    }
+}
+
 int main(int argc, char **argv) {
     if (argc != 3) {
         std::cerr << "Usage: program <machine_name> <port_num>\n";
@@ -87,6 +125,8 @@ int main(int argc, char **argv) {
     std::cout << "id = " << player.id << std::endl;
     std::cout << "left_id = " << player.left_id << std::endl;
     std::cout << "right_id = " << player.right_id << std::endl;
+
+    player.play_potato();
 
     return EXIT_SUCCESS;
 }

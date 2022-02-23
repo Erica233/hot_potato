@@ -60,6 +60,35 @@ void Ringmaster::ring_players() {
     }
 }
 
+void Ringmaster::play_potato() {
+    //create potato object
+    potato.tot_hops = num_hops;
+    //start game
+    srand((unsigned int)time(NULL));
+    int random = rand() % num_players;
+    //std::cout << "random outside of if statement: " << random << std::endl;
+    //std::cout << "Ready to start the game, sending potato to player " << random << std::endl;
+    //wait for potato back
+    if (num_hops == 0) {
+        //shut down
+    } else {
+        send(fds[random], &potato, sizeof(potato), 0);
+        std::cout << "Ready to start the game, sending potato to player " << random << std::endl;
+
+        select_read(fds, potato);
+        //report results
+        std::cout << "Trace of potato: \n";
+        //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
+        for (int i = 0; i < num_hops; i++) {
+            if (i == num_hops - 1) {
+                std::cout << potato.ids[i] << "\n";
+                break;
+            }
+            std::cout << potato.ids[i] << ",";
+        }
+    }
+}
+
 int main(int argc, char **argv) {
     if (argc != 4) {
         std::cerr << "Usage: program <port_num> <num_players> <num_hops>\n";
@@ -75,6 +104,8 @@ int main(int argc, char **argv) {
     master.print_vec();
 
     master.ring_players();
+
+    master.play_potato();
 
     return EXIT_SUCCESS;
 }

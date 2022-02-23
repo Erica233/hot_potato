@@ -46,6 +46,7 @@ public:
     }
     void connect_players();
     void ring_players();
+    void play_potato();
     void print_vec();
     ~Ringmaster() {
         for (int i = 0; i < num_players; i++) {
