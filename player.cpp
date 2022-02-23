@@ -77,7 +77,7 @@ void Player::play_potato() {
     //play
     std::cout << "=======before potato: \n";
     while (true) {
-        //std::cout << "enter while\n";
+        std::cout << "------enter while\n";
         //receive potato from ringmaster or other players
         select_read(fds, potato);
         std::cout << "after select_read()\n";
@@ -85,17 +85,17 @@ void Player::play_potato() {
         std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         //if the ringmaster notify that the game ends, jump out of loop
         if (potato.remain_hops == 0) {
-            //std::cout << "game ends\n";
+            std::cout << "game ends\n";
             break;
         }
         //if get potato from other player, edit potato
-        //std::cout << "edit potato: \n";
+        std::cout << "edit potato: \n";
         potato.ids[potato.curr_rnd] = id;
-        //std::cout << "ids[potato.curr_rnd] = " << potato.ids[potato.curr_rnd] << std::endl;
+        std::cout << "ids[potato.curr_rnd] = " << potato.ids[potato.curr_rnd] << std::endl;
         potato.curr_rnd++;
-        //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
+        std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         potato.remain_hops--;
-        //std::cout << "potato.remain_hops: " << potato.remain_hops << std::endl;
+        std::cout << "potato.remain_hops: " << potato.remain_hops << std::endl;
         if (potato.remain_hops == 0) {
             std::cout << "I’m it\n";
             //send to ringmaster
@@ -105,7 +105,7 @@ void Player::play_potato() {
         //send to a random neighbor
         int random_idx = rand() % 2;
         send(fds[random_idx], &potato, sizeof(potato), 0);
-        //std::cout << "leftid & rightid: " << ids[1] << " " << ids[0] << "\n";
+        std::cout << "leftid & rightid: " << ids[1] << " " << ids[0] << "\n";
         std::cout << "Sending potato to " << ids[random_idx] << std::endl;
     }
 }
