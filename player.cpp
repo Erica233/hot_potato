@@ -75,6 +75,7 @@ void Player::setup() {
 
 void Player::play_potato() {
     //play
+    Potato potato;
     std::cout << "=======before potato: \n";
     while (true) {
         std::cout << "------enter while\n";

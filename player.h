@@ -27,7 +27,6 @@ public:
 
     int as_client_fd;  //as a client, connect with right
 
-    Potato potato;
     std::vector<int> ids;
     std::vector<int> fds;
 

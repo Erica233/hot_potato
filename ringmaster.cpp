@@ -62,7 +62,7 @@ void Ringmaster::ring_players() {
 
 void Ringmaster::play_potato() {
     //create potato object
-    potato.tot_hops = num_hops;
+    Potato potato(num_hops);
     //start game
     //srand((unsigned int)time(NULL));
     int random = rand() % num_players;

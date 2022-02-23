@@ -26,7 +26,6 @@ public:
     std::vector<int> fds;
     std::vector<std::string> hosts;
     std::vector<uint16_t> ports;
-    Potato potato;
 
 public:
     Ringmaster(char * port_num, char * n_players, char * n_hops): port(port_num) {
