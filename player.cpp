@@ -116,7 +116,7 @@ void Player::play_potato() {
         int random_idx = rand() % 2;
         //std::cout << "to random_idx: " << random_idx << std::endl;
         send(fds[random_idx], &potato, sizeof(potato), 0);
-        potato.print_trace();
+        //potato.print_trace();
         std::cout << "Sending potato to " << ids[random_idx] << std::endl;
     }
 }
