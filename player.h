@@ -37,6 +37,7 @@ public:
         master_port = port;
     }
     void setup();
+    void play_potato();
     ~Player() {
         close(socket_fd);
         close(as_server_fd);
