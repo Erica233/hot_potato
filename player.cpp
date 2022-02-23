@@ -79,6 +79,7 @@ void Player::play_potato() {
     std::cout << "=======before potato: \n";
     while (true) {
         std::cout << "------enter while\n";
+        potato.print_trace();
         //receive potato from ringmaster or other players
         select_read(fds, potato);
         std::cout << "after select_read()\n";
@@ -105,6 +106,7 @@ void Player::play_potato() {
         //send to a random neighbor
         int random_idx = rand() % 2;
         send(fds[random_idx], &potato, sizeof(potato), 0);
+        potato.print_trace();
         std::cout << "Sending potato to " << ids[random_idx] << std::endl;
     }
 }
