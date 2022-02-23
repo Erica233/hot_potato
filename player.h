@@ -38,6 +38,7 @@ public:
         master_host = host;
         master_port = port;
     }
+    int getId() {return id;}
     void setup();
     void play_potato();
     ~Player() {
