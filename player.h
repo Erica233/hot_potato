@@ -15,6 +15,7 @@
 class Player {
 private:
     void cal_neighbor_id();
+    void send_host_port();
 public:
     char * master_host;
     char * master_port;
