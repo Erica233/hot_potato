@@ -1,12 +1,5 @@
 #include "player.h"
-
-void Player::setup() {
-    //connect itself with ringmaster
-    socket_fd = create_client(master_port, master_host);
-
-    recv(socket_fd, &id, sizeof(id), MSG_WAITALL);
-    recv(socket_fd, &num_players, sizeof(num_players), MSG_WAITALL);
-
+void Player::cal_neighbor_id() {
     left_id = id - 1;
     if (left_id < 0) {
         left_id = num_players - 1;
@@ -16,6 +9,15 @@ void Player::setup() {
         right_id = 0;
     }
     ids.insert(ids.end(), {right_id, left_id});
+}
+
+void Player::setup() {
+    //connect itself with ringmaster
+    socket_fd = create_client(master_port, master_host);
+    recv(socket_fd, &id, sizeof(id), MSG_WAITALL);
+    recv(socket_fd, &num_players, sizeof(num_players), MSG_WAITALL);
+
+    cal_neighbor_id();
 
     char host[MAX_HOST_LEN];
     memset(host, 0, sizeof(host));

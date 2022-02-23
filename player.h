@@ -13,6 +13,8 @@
 #include "potato.h"
 
 class Player {
+private:
+    void cal_neighbor_id();
 public:
     char * master_host;
     char * master_port;
