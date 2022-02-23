@@ -23,7 +23,6 @@ void Player::send_host_port() {
     send(socket_fd, &host, sizeof(host), 0);
 
     //work as a server and get port, and send to ringmaster
-    //as_server_fd = create_server("0");
     struct sockaddr_in addr;
     memset(&addr, 0, sizeof(addr));
     socklen_t len = sizeof(addr);
