@@ -83,8 +83,9 @@ void Ringmaster::play_potato() {
             if (i == num_hops - 1) {
                 std::cout << potato.ids[i] << "\n";
                 //break;
+            }else {
+                std::cout << potato.ids[i] << ",";
             }
-            std::cout << potato.ids[i] << ",";
         }
     }
 }
