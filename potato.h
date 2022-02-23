@@ -17,8 +17,9 @@ public:
             if (i == tot_hops - 1) {
                 std::cout << ids[i] << "\n";
                 //break;
+            } else {
+                std::cout << ids[i] << ",";
             }
-            std::cout << ids[i] << ",";
         }
     }
 };
