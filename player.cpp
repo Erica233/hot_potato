@@ -61,7 +61,7 @@ void Player::setup() {
     std::cout << "Connected as player " << id << " out of " << num_players << " total players\n";
 
     // as a client, connect with right
-\    as_client_fd = create_client(right_port_cstr, right_host_cstr);
+    as_client_fd = create_client(right_port_cstr, right_host_cstr);
 
     // as a server, connect with left
     //accept
