@@ -87,10 +87,10 @@ void Player::play_potato() {
     //std::cout << "=======before potato: \n";
     srand((unsigned int)time(NULL) + getId());
     while (true) {
-        //std::cout << "------enter while\n";
+        std::cout << "------enter while\n";
         //receive potato from ringmaster or other players
         int n = select_read(fds, potato);
-        //potato.print_trace();
+        potato.print_trace();
         //std::cout << "after select_read()\n";
         //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         //if the ringmaster notify that the game ends, jump out of loop
@@ -101,14 +101,14 @@ void Player::play_potato() {
         //if get potato from other player, edit potato
         //std::cout << "edit potato: \n";
         potato.ids[potato.curr_rnd] = id;
-        //std::cout << "ids[potato.curr_rnd] = " << potato.ids[potato.curr_rnd] << std::endl;
+        std::cout << "ids[potato.curr_rnd] = " << potato.ids[potato.curr_rnd] << std::endl;
         potato.curr_rnd++;
         //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
         potato.remain_hops--;
         //std::cout << "potato.remain_hops: " << potato.remain_hops << std::endl;
         if (potato.remain_hops == 0) {
             std::cout << "I'm it\n";
-            //potato.print_trace();
+            potato.print_trace();
             //send to ringmaster
             send(socket_fd, &potato, sizeof(potato), 0);
             continue;
@@ -117,7 +117,7 @@ void Player::play_potato() {
         int random_idx = rand() % 2;
         //std::cout << "to random_idx: " << random_idx << std::endl;
         send(fds[random_idx], &potato, sizeof(potato), 0);
-        //potato.print_trace();
+        potato.print_trace();
         std::cout << "Sending potato to " << ids[random_idx] << std::endl;
     }
 }
