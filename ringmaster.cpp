@@ -79,13 +79,13 @@ void Ringmaster::play_potato() {
         //report results
         std::cout << "Trace of potato: \n";
         //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < num_hops; i++) {
             if (i == num_hops - 1) {
                 std::cout << potato.ids[i] << "\n";
-                //break;
-            }else {
-                std::cout << potato.ids[i] << ",";
-            }
+                break;
+            }//else {
+            std::cout << potato.ids[i] << ",";
+            //}
         }
     }
 }
@@ -102,7 +102,7 @@ int main(int argc, char **argv) {
 
     //connect ringmaster and each player
     master.connect_players();
-    master.print_vec();
+    //master.print_vec();
 
     master.ring_players();
 
