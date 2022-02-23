@@ -90,7 +90,7 @@ int create_client(const char * port, const char * hostname) {
     return socket_fd;
 }
 
-void select_read(std::vector<int> & fds, Potato & potato) {
+int select_read(std::vector<int> & fds, Potato & potato) {
     //std::cout << "start of select_read(): \n";
     //std::cout << "tot_hops: " << potato.tot_hops << std::endl;
     int max_fd = 0;
@@ -114,10 +114,10 @@ void select_read(std::vector<int> & fds, Potato & potato) {
         //std::cout << "Successful select(): \n";
         for (int i = 0; i < fds.size(); i++) {
             if (FD_ISSET(fds[i], &readfds)) {
-                recv(fds[i], &potato, sizeof(potato), MSG_WAITALL);
+                int n = recv(fds[i], &potato, sizeof(potato), MSG_WAITALL);
                 //std::cout << "after recv(): \n";
                 //std::cout << "curr_rnd: " << potato.curr_rnd << std::endl;
-                break;
+                return n;
             }
         }
     }
