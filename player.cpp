@@ -47,11 +47,11 @@ void Player::setup() {
     //std::cout << "right_id: " << right_id << std::endl;
     //std::cout << "right_port: " << right_port << std::endl;
     //std::cout << "right_host: " << right_host << std::endl;
-    //std::cout << "right_host_cstr: " << right_host_cstr << std::endl;
+    std::cout << "right_host_cstr: " << right_host_cstr << std::endl;
     char right_port_cstr[10];
     memset(right_port_cstr, 0, sizeof(right_port_cstr));
     sprintf(right_port_cstr, "%u", right_port);
-    //std::cout << "right_port_cstr: " << right_port_cstr << std::endl;
+    std::cout << "right_port_cstr: " << right_port_cstr << std::endl;
 
     std::cout << "Connected as player " << id << " out of " << num_players << " total players\n";
 
