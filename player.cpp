@@ -1,4 +1,5 @@
 #include "player.h"
+#include "socket.h"
 
 void Player::setup() {
     //connect itself with ringmaster
