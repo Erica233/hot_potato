@@ -20,7 +20,7 @@ void Player::setup() {
     memset(host, 0, sizeof(host));
     if (gethostname(host, sizeof(host)) != 0) {
         std::cerr << "Error: gethostname() failed\n";
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
     std::cout << "host from gethostname()" << host << std::endl;
     send(socket_fd, &host, sizeof(host), 0);
