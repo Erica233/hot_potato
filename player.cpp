@@ -87,7 +87,7 @@ void Player::play_potato() {
         //if the ringmaster notify that the game ends, jump out of loop
         if (potato.remain_hops == 0) {
             std::cout << "game ends\n";
-            break;
+            return;
         }
         //if get potato from other player, edit potato
         std::cout << "edit potato: \n";
