@@ -73,6 +73,7 @@ void Ringmaster::play_potato() {
         std::cout << "Trace of potato: \n";
         potato.print_trace();
     }
+    //send zero potato to indicate the ending
     for (int i = 0; i < num_players; i++) {
         send(fds[i], &potato, sizeof(potato), 0);
     }
