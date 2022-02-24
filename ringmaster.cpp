@@ -73,6 +73,9 @@ void Ringmaster::play_potato() {
         std::cout << "Trace of potato: \n";
         potato.print_trace();
     }
+    for (int i = 0; i < num_players; i++) {
+        send(fds[i], &potato, sizeof(potato), 0);
+    }
 }
 
 int main(int argc, char **argv) {

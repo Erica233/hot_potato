@@ -83,7 +83,10 @@ void Player::play_potato() {
         //receive potato from ringmaster or other players
         int n = select_read(fds, potato);
         //if the ringmaster notify that the game ends, jump out of loop
-        if (potato.remain_hops == 0 | n == 0) {
+//        if (potato.remain_hops == 0 | n == 0) {
+//            break;
+//        }
+        if (potato.remain_hops == 0) {
             break;
         }
         //if get potato from other player, edit potato
