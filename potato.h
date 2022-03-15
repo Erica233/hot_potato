@@ -13,7 +13,7 @@ public:
     Potato(): tot_hops(0), remain_hops(0), curr_rnd(0) {}
     explicit Potato(int n): tot_hops(n), remain_hops(n), curr_rnd(0) {}
     void print_trace() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < tot_hops; i++) {
             if (i == tot_hops - 1) {
                 std::cout << ids[i] << "\n";
                 break;

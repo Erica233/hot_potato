@@ -14,9 +14,6 @@
 
 class Player {
 private:
-    void cal_neighbor_id();
-    void send_host_port();
-//public:
     char * master_host;
     char * master_port;
     int socket_fd;  //connect itself with ringmaster
@@ -32,6 +29,9 @@ private:
 
     std::vector<int> ids;  //{right_id, left_id}
     std::vector<int> fds;  //{as_client_fd, client_connect_fd, socket_fd})
+
+    void cal_neighbor_id();
+    void send_host_port();
 
 public:
     Player(char * host, char * port) {

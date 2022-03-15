@@ -44,12 +44,12 @@ public:
         std::cout << "Hops = " << num_hops << std::endl;
     }
     void connect_players();
+    int get_num_players() {return num_players;}
     void ring_players();
     void play_potato();
     void print_vec();
     ~Ringmaster() {
         for (int i = 0; i < num_players; i++) {
-            //send(fds[i], &potato, sizeof(potato), 0);
             close(fds[i]);
         }
         close(socket_fd);
